@@ -1,0 +1,35 @@
+create table customer (customer_Id int ,customer_name varchar(20),city varchar (20),grade int 
+ ,salesman_Id int) 
+
+ insert into customer(customer_Id,customer_name,city,grade,salesman_Id)
+ values(3002,'Nick Rimando','New york',100,5001),
+ (3007,'Nick Rimando','New york',200,5001),
+ (3005,'Brad davis','California',200,5002),
+ (3008,'Graham zusi','London',300,5002),
+ (3004,'Zulian Green','paris',300,5006),
+ (3009,'Fabian Johnson','Berlin',100,5003),
+ (3003,'Jozy Altidor','Moscow',200,5007),
+ (3001,'Brad Guzan','london','',5005);
+
+ select * from customer
+
+update customer set grade=NUll where customer_Id=3001;
+
+create table salesman (salesman_id int,name varchar(20),city varchar (20),commission float(10))
+
+insert into salesman(salesman_id,name,city,commission)
+values(5001,'james hoog','New york',0.15),
+(5002,'Nail knite','paris',0.13),
+(5005,'pit alex','London',0.11),
+(5006,'mc lyon','paris',0.14),
+(5007,'Paul adam','Rome',0.13),
+(5003,'Lauson hen','San Jose',0.12);
+
+ select * from salesman
+
+
+
+SELECT customer.customer_name, customer.city, salesman.name,salesman.city,salesman.commission
+FROM customer
+INNER JOIN salesman
+ON customer.salesman_Id =salesman.salesman_id;
